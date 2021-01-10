@@ -34,7 +34,7 @@ tools/editconf.py /etc/default/spamassassin \
 # we can skip 'pyzor discover', both of which are currently broken by
 # something happening on Sourceforge (#496).
 rm -rf ~/.pyzor
-tools/editconf.py /etc/spamassassin/local.cf -s \
+tools/editconf.py /etc/spamassassin/local-def.cf -s \
 	pyzor_options="--homedir /etc/spamassassin/pyzor"
 mkdir -p /etc/spamassassin/pyzor
 echo "public.pyzor.org:24441" > /etc/spamassassin/pyzor/servers
@@ -62,7 +62,7 @@ tools/editconf.py /etc/default/spampd \
 #
 # Tell Spamassassin not to modify the original message except for adding
 # the X-Spam-Status & X-Spam-Score mail headers and related headers.
-tools/editconf.py /etc/spamassassin/local.cf -s \
+tools/editconf.py /etc/spamassassin/local-def.cf -s \
 	report_safe=0 \
 	"add_header all Report"=_REPORT_ \
 	"add_header all Score"=_SCORE_
